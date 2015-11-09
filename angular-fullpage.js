@@ -33,7 +33,8 @@
       };
 
       var sanatizeOptions = function(options) {
-        options.onLeave = function(page, next){
+        options.onLeave = function(page, next, dir){
+	  options.onLeaveFunction(page, next, dir);
           pageIndex = next;
         };
 
