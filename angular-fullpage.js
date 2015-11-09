@@ -34,8 +34,11 @@
 
       var sanatizeOptions = function(options) {
         options.onLeave = function(page, next, dir){
-	  options.onLeaveFunction(page, next, dir);
-          pageIndex = next;
+	        if(options.onLeaveFunction(page, next, dir) === true){
+            pageIndex = next;
+          }else{
+            return false;
+          }
         };
 
         options.onSlideLeave = function(anchorLink, page, slide, direction, next){
